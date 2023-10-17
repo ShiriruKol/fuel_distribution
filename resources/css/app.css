@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    /* Растягиваем body по высоте html */
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.divbg  {
+    background-image: url("../../public/img/home/homeImage.jpg");
+    background-color: #4a5568;
+    border-radius: 25px;
+    background-size: auto 100%;
+    height: 100vh;
+    width: 100%;
+}
+/*Контур текста*/
+.ts{
+    text-shadow:
+        -0   -1px 1px #000000,
+        0   -1px 1px #000000,
+        -0    1px 1px #000000,
+        0    1px 1px #000000,
+        -1px -0   1px #000000,
+        1px -0   1px #000000,
+        -1px  0   1px #000000,
+        1px  0   1px #000000,
+        -1px -1px 1px #000000,
+        1px -1px 1px #000000,
+        -1px  1px 1px #000000,
+        1px  1px 1px #000000,
+        -1px -1px 1px #000000,
+        1px -1px 1px #000000,
+        -1px  1px 1px #000000,
+        1px  1px 1px #000000;
+}
+
+.divtxt{
+    position: relative;
+    top: 40%;
+}
+
+header {
+}
+
+main {
+}
+
+footer {
+
+}
