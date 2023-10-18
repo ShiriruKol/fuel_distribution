@@ -79,25 +79,42 @@
     </div>
 </main>
 
-<footer role="contentinfo" class="bg-white mt-3">
+
+<footer role="contentinfo" class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
+    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="{{route('home.index')}}" class="hover:underline">Fuel Calculation</a>
+    </span>
+        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+            <li>
+                <a href="https://github.com/ShiriruKol/fuel_calculation" class="mr-4 hover:underline md:mr-6 ">
+                    My GitHub account
+                    <i class="fa-brands fa-github fa-beat" style="color: #ffffff;"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+
+{{--<footer role="contentinfo" class="bg-cyan-950 mt-3">
     <hr>
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
-          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#"
-                                                                                          class="hover:text-blue-700">Fuel Calculation</a>
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023
+              <a href="{{route('home.index')}}" class="hover:text-blue-700">Fuel Calculation</a>
           </span>
             <div class="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
                 <a href="https://github.com/ShiriruKol/fuel_calculation" target="_blank"
                    class="text-sm text-gray-500 hover:text-gray-500 dark:hover:text-blue-700">
                     My GitHub account
-                    <i class="fa-brands fa-github fa-beat" style="color: #241f31;"></i>
+                    <i class="fa-brands fa-github fa-beat" style="color: #ffffff;"></i>
                     <span class="sr-only">GitHub account</span>
                 </a>
             </div>
         </div>
     </div>
     <hr>
-</footer>
+</footer>--}}
 
 
 </body>
