@@ -15,8 +15,8 @@ class Fuel extends Model
 
     public $guarded = false;
 
-    /*public function types()
+    public function types()
     {
-        return $this->belongsToMany(TypeFuel::class, 'type_fuels', 'fuel_id', 'id');
-    }*/
+        return $this->hasMany(TypeFuel::class, 'fuel_id', 'id');
+    }
 }

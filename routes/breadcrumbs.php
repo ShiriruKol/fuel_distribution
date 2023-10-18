@@ -18,3 +18,17 @@ Breadcrumbs::for('fuels.index', function (BreadcrumbTrail $trail): void {
     $trail->push('Виды топлива', route('fuels.index'));
 
 });
+
+Breadcrumbs::for('fuels.show', function (BreadcrumbTrail $trail, Fuel $fuel): void {
+
+    $trail->parent('fuels.index');
+    $trail->push($fuel->name, route('fuels.show', $fuel));
+
+});
+
+Breadcrumbs::for('fuels.create', function (BreadcrumbTrail $trail): void {
+
+    $trail->parent('fuels.index');
+    $trail->push('Добавление топлива', route('fuels.create'));
+
+});
