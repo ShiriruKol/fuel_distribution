@@ -21,17 +21,29 @@ class FuelController extends Controller
         return view('fuel.fuels', compact('fuels'));
     }
 
+    private function calculationRemaining_fuel($total_number, $types): float
+    {
+        foreach ($types as $type) {
+            $total_number -= $type->number_fuel;
+        }
+        return $total_number;
+    }
+
     public function show(Fuel $fuel)
     {
         $types = $this->service->show($fuel);
 
-        return view('fuel.show', compact('fuel', 'types'));
+        $remaining_fuel = $this->calculationRemaining_fuel($fuel->total_number, $types);
+
+        return view('fuel.show', compact('fuel', 'types', 'remaining_fuel'));
     }
+
 
     public function create()
     {
         return view('fuel.create');
     }
+
     public function store()
     {
         //total_number
@@ -56,11 +68,13 @@ class FuelController extends Controller
         return redirect()->route('fuels.index');
     }
 
-    public function edit(Fuel $fuel){
+    public function edit(Fuel $fuel)
+    {
         return view('fuel.edit', compact('fuel'));
     }
 
-    public function update(Fuel $fuel){
+    public function update(Fuel $fuel)
+    {
         $data = request()->validate([
             'name' => 'required|string',
             'total_number' => 'required|numeric|between:0,1000'
@@ -71,4 +85,5 @@ class FuelController extends Controller
 
         return redirect()->route('fuels.index');
     }
+
 }
