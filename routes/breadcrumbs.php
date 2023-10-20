@@ -32,3 +32,10 @@ Breadcrumbs::for('fuels.create', function (BreadcrumbTrail $trail): void {
     $trail->push('Добавление топлива', route('fuels.create'));
 
 });
+
+Breadcrumbs::for('fuels.confirm', function (BreadcrumbTrail $trail, Fuel $fuel): void {
+
+    $trail->parent('fuels.index');
+    $trail->push('Удаление: ' . $fuel->name, route('fuels.confirm', $fuel));
+
+});

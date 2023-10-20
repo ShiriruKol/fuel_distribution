@@ -45,4 +45,14 @@ class FuelController extends Controller
         return redirect()->route('fuels.index');
     }
 
+    public function confirm(Fuel $fuel)
+    {
+        return view('fuel.confirm', compact('fuel'));
+    }
+
+    public function destroy(Fuel $fuel)
+    {
+        $fuel->delete();
+        return redirect()->route('fuels.index');
+    }
 }
