@@ -55,4 +55,20 @@ class FuelController extends Controller
         $fuel->delete();
         return redirect()->route('fuels.index');
     }
+
+    public function edit(Fuel $fuel){
+        return view('fuel.edit', compact('fuel'));
+    }
+
+    public function update(Fuel $fuel){
+        $data = request()->validate([
+            'name' => 'required|string',
+            'total_number' => 'required|numeric|between:0,1000'
+        ]);
+
+        $fuel->update($data);
+        $fuel->refresh();
+
+        return redirect()->route('fuels.index');
+    }
 }

@@ -11,6 +11,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/fuels/create', [\App\Http\Controllers\FuelController::class, 'create'])->name('fuels.create');
     Route::post('/fuels/store', [\App\Http\Controllers\FuelController::class, 'store'])->name('fuels.store');
     Route::get('/fuels/confirm_destroy/{fuel}', [\App\Http\Controllers\FuelController::class, 'confirm'])->name('fuels.confirm');
+    Route::get('/fuels/edit/{fuel}', [\App\Http\Controllers\FuelController::class, 'edit'])->name('fuels.edit');
+    Route::patch('/fuels/{fuel}', [\App\Http\Controllers\FuelController::class, 'update'])->name('fuels.update');
     Route::delete('/fuels/{fuel}', [\App\Http\Controllers\FuelController::class, 'destroy'])->name('fuels.destroy');
     Route::get('/fuels/{fuel}', [\App\Http\Controllers\FuelController::class, 'show'])->name('fuels.show');
 
