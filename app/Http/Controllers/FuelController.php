@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Fuel\StoreRequest;
 use App\Models\Fuel;
 use App\Services\Fuels\Service;
 
@@ -44,13 +45,10 @@ class FuelController extends Controller
         return view('fuel.create');
     }
 
-    public function store()
+    public function store(StoreRequest $request)
     {
         //total_number
-        $data = request()->validate([
-            'name' => 'required|string',
-            'total_number' => 'required|numeric|between:0,1000'
-        ]);
+        $data = $request->validated();
 
         $this->service->store($data);
 
@@ -73,12 +71,9 @@ class FuelController extends Controller
         return view('fuel.edit', compact('fuel'));
     }
 
-    public function update(Fuel $fuel)
+    public function update(Fuel $fuel, StoreRequest $request)
     {
-        $data = request()->validate([
-            'name' => 'required|string',
-            'total_number' => 'required|numeric|between:0,1000'
-        ]);
+        $data = $request->validated();
 
         $fuel->update($data);
         $fuel->refresh();
