@@ -17,6 +17,14 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            //Вид топлива
+            $table->unsignedBigInteger('role_id');
+
+            $table->index('role_id', 'user_role_idx');
+
+            $table->foreign('role_id')->references('id')->on('roles');
+
             $table->rememberToken();
             $table->timestamps();
         });

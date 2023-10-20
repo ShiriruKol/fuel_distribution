@@ -47,7 +47,6 @@ class FuelController extends Controller
 
     public function store(StoreRequest $request)
     {
-        //total_number
         $data = $request->validated();
 
         $this->service->store($data);
