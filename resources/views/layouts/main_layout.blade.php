@@ -86,7 +86,7 @@
     </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
             <li>
-                <a href="https://github.com/ShiriruKol/fuel_calculation" class="mr-4 hover:underline md:mr-6 ">
+                <a href="https://github.com/ShiriruKol/" class="mr-4 hover:underline md:mr-6 ">
                     My GitHub account
                     <i class="fa-brands fa-github fa-beat" style="color: #ffffff;"></i>
                 </a>
