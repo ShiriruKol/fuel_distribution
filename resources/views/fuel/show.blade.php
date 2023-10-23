@@ -4,9 +4,9 @@
     Топливо: {{$fuel->name}}
 @endsection
 @section('content')
-    {{--{{ Breadcrumbs::render() }}--}}
+    {{ Breadcrumbs::render() }}
     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Топливо: {{$fuel->name}} <br> Всего топлива: {{ $fuel->total_number }} л. (Оставшееся топливо: {{ $remaining_fuel }})</h5>
-    <a href="{{--{{route("fuels.show", $fuel->id)}}--}}" class="text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-lime-600 dark:hover:bg-lime-700 focus:outline-none dark:focus:ring-lime-800">Добавить пользователя</a>
+    <a href="{{route("type_fuel.create", $fuel->id)}}" class="text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-lime-600 dark:hover:bg-lime-700 focus:outline-none dark:focus:ring-lime-800">Добавить пользователя</a>
     <div class="relative overflow-x-auto mt-3">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
