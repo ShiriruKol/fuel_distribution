@@ -26,7 +26,7 @@ class FuelController extends Controller
     {
         $types = $this->service->show($fuel);
 
-        $remaining_fuel = $fuel->calculationRemaining_fuel($types);
+        $remaining_fuel = $fuel->calculationRemaining_fuel();
 
         return view('fuel.show', compact('fuel', 'types', 'remaining_fuel'));
     }
