@@ -20,10 +20,10 @@ class Fuel extends Model
         return $this->hasMany(TypeFuel::class, 'fuel_id', 'id');
     }
 
-    public function calculationRemaining_fuel($types): float
+    public function calculationRemaining_fuel(): float
     {
         $tmp_total = $this->total_number;
-        foreach ($types as $type) {
+        foreach ($this->types as $type) {
             $tmp_total -= $type->number_fuel;
         }
         return $tmp_total;
