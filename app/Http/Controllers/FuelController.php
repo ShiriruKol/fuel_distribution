@@ -22,19 +22,11 @@ class FuelController extends Controller
         return view('fuel.fuels', compact('fuels'));
     }
 
-    private function calculationRemaining_fuel($total_number, $types): float
-    {
-        foreach ($types as $type) {
-            $total_number -= $type->number_fuel;
-        }
-        return $total_number;
-    }
-
     public function show(Fuel $fuel)
     {
         $types = $this->service->show($fuel);
 
-        $remaining_fuel = $this->calculationRemaining_fuel($fuel->total_number, $types);
+        $remaining_fuel = $fuel->calculationRemaining_fuel($types);
 
         return view('fuel.show', compact('fuel', 'types', 'remaining_fuel'));
     }
