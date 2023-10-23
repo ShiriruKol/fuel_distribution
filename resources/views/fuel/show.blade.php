@@ -37,8 +37,12 @@
                     <td class="px-6 py-4">
                         {{$type->created_at}}
                     </td>
-                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        <a href="#">Изменить</a>
+                    <td>
+                        <form action="{{route('type_fuel.destroy', $type)}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">Удалить</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

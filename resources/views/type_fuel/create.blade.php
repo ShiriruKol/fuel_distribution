@@ -1,6 +1,6 @@
 @extends('layouts.main_layout')
 
-@section('title')Главная страница@endsection
+@section('title')Добавление выписки пользователя@endsection
 
 @section('content')
 
