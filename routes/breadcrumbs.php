@@ -22,7 +22,7 @@ Breadcrumbs::for('fuels.index', function (BreadcrumbTrail $trail): void {
 Breadcrumbs::for('fuels.show', function (BreadcrumbTrail $trail, Fuel $fuel): void {
 
     $trail->parent('fuels.index');
-    $trail->push($fuel->name, route('fuels.show', $fuel));
+    $trail->push('Топливо: ' . $fuel->name, route('fuels.show', $fuel));
 
 });
 
@@ -44,5 +44,12 @@ Breadcrumbs::for('fuels.edit', function (BreadcrumbTrail $trail, Fuel $fuel): vo
 
     $trail->parent('fuels.index');
     $trail->push('Изменение: ' . $fuel->name, route('fuels.edit', $fuel));
+
+});
+
+Breadcrumbs::for('type_fuel.create', function (BreadcrumbTrail $trail, Fuel $fuel): void {
+
+    $trail->parent('fuels.show', $fuel);
+    $trail->push('Добавление выписки пользователя', route('type_fuel.create', $fuel));
 
 });
