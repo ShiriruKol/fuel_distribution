@@ -18,6 +18,8 @@ Route::middleware('admin')->group(function () {
 
     Route::get('/type_fuel/create/{fuel}',[\App\Http\Controllers\TypeFuelController::class, 'create'])->name('type_fuel.create');
     Route::post('/type_fuel/store', [\App\Http\Controllers\TypeFuelController::class, 'store'])->name('type_fuel.store');
+    Route::delete('/type_fuel/{type}', [\App\Http\Controllers\TypeFuelController::class, 'destroy'])->name('type_fuel.destroy');
+
 
 
     /*Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -27,6 +29,3 @@ Route::middleware('admin')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
-
-

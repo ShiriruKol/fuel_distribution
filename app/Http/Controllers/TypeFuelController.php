@@ -32,4 +32,12 @@ class TypeFuelController extends Controller
 
         return redirect()->route('fuels.show', $data['fuel_id']);
     }
+
+    public function destroy(TypeFuel $type)
+    {
+        $fuel_id = $type->fuel_id;
+        $type->delete();
+        return redirect()->route('fuels.show', $fuel_id);
+    }
+
 }
