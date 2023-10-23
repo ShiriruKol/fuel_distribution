@@ -3,10 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('admin')->group(function () {
+
     Route::get('/fuels', [\App\Http\Controllers\FuelController::class, 'fuels'])->name('fuels.index');
     Route::get('/fuels/create', [\App\Http\Controllers\FuelController::class, 'create'])->name('fuels.create');
     Route::post('/fuels/store', [\App\Http\Controllers\FuelController::class, 'store'])->name('fuels.store');
@@ -25,3 +25,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+
