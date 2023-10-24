@@ -22,6 +22,7 @@ class TypeFuelFactory extends Factory
             'number_fuel' => fake()->randomFloat(2, 1, 2),
             'fuel_id' => Fuel::get()->random()->id,
             'user_id' => User::get()->random()->id,
+            'status' => true,
         ];
     }
 }
