@@ -40,4 +40,17 @@ class TypeFuelController extends Controller
         return redirect()->route('fuels.show', $fuel_id);
     }
 
+    public function create_employee()
+    {
+        $fuels = Fuel::all();
+        return view('type_fuel.create_employee', compact('fuels'));
+    }
+
+    public function store_employee(StoreRequest $request)
+    {
+        $data = $request->validated();
+        $this->service->store($data);
+        return redirect()->route('home.index');
+    }
+
 }
