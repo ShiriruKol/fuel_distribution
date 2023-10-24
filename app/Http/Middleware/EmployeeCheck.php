@@ -15,7 +15,7 @@ class EmployeeCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role_id != 1 || auth()->user()->role_id != 2) {
+        if (auth()->user()->role_id != 1 && auth()->user()->role_id != 2) {
             return redirect()->route('home.index');
         }
         return $next($request);
