@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 
-Route::middleware('admin')->group(function () {
+Route::middleware('admin')->prefix('admin')->group(function () {
 
     Route::get('/fuels', [\App\Http\Controllers\FuelController::class, 'fuels'])->name('fuels.index');
     Route::get('/fuels/create', [\App\Http\Controllers\FuelController::class, 'create'])->name('fuels.create');
@@ -25,6 +25,10 @@ Route::middleware('admin')->group(function () {
     /*Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');*/
+
+});
+
+Route::middleware('employee')->prefix('employee')->group(function () {
 
 });
 
