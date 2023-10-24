@@ -29,7 +29,8 @@ Route::middleware('admin')->prefix('admin')->group(function () {
 });
 
 Route::middleware('employee')->prefix('employee')->group(function () {
-
+    Route::get('/type_fuel/create/',[\App\Http\Controllers\TypeFuelController::class, 'create_employee'])->name('type_fuel.create_employee');
+    Route::post('/type_fuel/store', [\App\Http\Controllers\TypeFuelController::class, 'store_employee'])->name('type_fuel.store_employee');
 });
 
 require __DIR__.'/auth.php';
