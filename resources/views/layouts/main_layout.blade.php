@@ -41,7 +41,8 @@
                     @can('viewAny', auth()->user())
                         <li>
                             <a href="{{ route('type_fuel.create_employee') }}"
-                               class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Запрос на топливо</a>
+                               class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Запрос
+                                на топливо</a>
                         </li>
                     @endcan
                     @can('view', auth()->user())
@@ -49,6 +50,12 @@
                             <a href="{{route('fuels.index')}}"
                                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Распределение
                                 топлива</a>
+                        </li>
+                        <li>
+                            <a href="{{route('type_fuel.index')}}"
+                               class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-regular fa-bell" style="color: #ffffff;">
+                                    {{auth()->user()->unreadNotifications->count()}}
+                                </i></a>
                         </li>
                     @endcan
                     <li>
@@ -90,7 +97,8 @@
 
 <footer role="contentinfo" class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
     <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="{{route('home.index')}}" class="hover:underline">Fuel Calculation</a>
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <a href="{{route('home.index')}}" class="hover:underline">Fuel Calculation</a>
     </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
             <li>
@@ -102,28 +110,6 @@
         </ul>
     </div>
 </footer>
-
-
-{{--<footer role="contentinfo" class="bg-cyan-950 mt-3">
-    <hr>
-    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div class="sm:flex sm:items-center sm:justify-between">
-          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023
-              <a href="{{route('home.index')}}" class="hover:text-blue-700">Fuel Calculation</a>
-          </span>
-            <div class="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-                <a href="https://github.com/ShiriruKol/fuel_calculation" target="_blank"
-                   class="text-sm text-gray-500 hover:text-gray-500 dark:hover:text-blue-700">
-                    My GitHub account
-                    <i class="fa-brands fa-github fa-beat" style="color: #ffffff;"></i>
-                    <span class="sr-only">GitHub account</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    <hr>
-</footer>--}}
-
 
 </body>
 </html>
