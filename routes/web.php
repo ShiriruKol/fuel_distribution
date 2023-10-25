@@ -16,9 +16,11 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::delete('/fuels/{fuel}', [\App\Http\Controllers\FuelController::class, 'destroy'])->name('fuels.destroy');
     Route::get('/fuels/{fuel}', [\App\Http\Controllers\FuelController::class, 'show'])->name('fuels.show');
 
+    Route::get('/type_fuels', [\App\Http\Controllers\TypeFuelController::class, 'type_fuels'])->name('type_fuel.index');
     Route::get('/type_fuel/create/{fuel}',[\App\Http\Controllers\TypeFuelController::class, 'create'])->name('type_fuel.create');
     Route::post('/type_fuel/store', [\App\Http\Controllers\TypeFuelController::class, 'store'])->name('type_fuel.store');
     Route::delete('/type_fuel/{type}', [\App\Http\Controllers\TypeFuelController::class, 'destroy'])->name('type_fuel.destroy');
+    Route::patch('/type_fuel/{type}', [\App\Http\Controllers\TypeFuelController::class, 'update'])->name('type_fuel.update');
 
 
 
