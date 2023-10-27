@@ -15,6 +15,6 @@
 ###  🔬 Технический стек разабатываемого продукта:
 
 <p align="left">
-<img src="https://github.com/dheereshagrwal/colored-icons/blob/master/icons/laravel/laravel.svg" />
-<img src="https://github.com/dheereshagrwal/colored-icons/blob/master/icons/tailwind/tailwind.svg" />
+<img align="center" alt="LinkedIn" height="30" width="40" src="https://github.com/dheereshagrwal/colored-icons/blob/master/icons/laravel/laravel.svg" />
+<img align="center" alt="LinkedIn" height="30" width="40" src="https://github.com/dheereshagrwal/colored-icons/blob/master/icons/tailwind/tailwind.svg" />
 </p>
