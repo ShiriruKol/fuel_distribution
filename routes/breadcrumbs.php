@@ -59,4 +59,12 @@ Breadcrumbs::for('type_fuel.create_employee', function (BreadcrumbTrail $trail):
     $trail->parent('home.index');
     $trail->push('Заявка на топливо', route('type_fuel.create_employee'));
 
+});//type_fuel.user
+
+
+Breadcrumbs::for('type_fuel.user', function (BreadcrumbTrail $trail): void {
+
+    $trail->parent('home.index');
+    $trail->push('Список заявок сотрудника: ' . auth()->user()->name, route('type_fuel.user'));
+
 });
