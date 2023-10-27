@@ -4,6 +4,7 @@ namespace App\Services\TypeFuels;
 
 use App\Models\TypeFuel;
 use Illuminate\Support\Facades\DB;
+use Ramsey\Collection\Collection;
 
 class Service
 {
@@ -23,9 +24,8 @@ class Service
         return true;
     }
 
-    public function show()
+    public function show($types)
     {
-        $types = TypeFuel::where('status', 0)->get();
         foreach ($types as $key => $type)
         {
             $user = DB::table('users')->select( 'name')->where('id', $type->user_id)->get();
