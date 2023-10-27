@@ -23,16 +23,12 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::patch('/type_fuel/{type}', [\App\Http\Controllers\TypeFuelController::class, 'update'])->name('type_fuel.update');
 
 
-
-    /*Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');*/
-
 });
 
 Route::middleware('employee')->prefix('employee')->group(function () {
     Route::get('/type_fuel/create/',[\App\Http\Controllers\TypeFuelController::class, 'create_employee'])->name('type_fuel.create_employee');
     Route::post('/type_fuel/store', [\App\Http\Controllers\TypeFuelController::class, 'store_employee'])->name('type_fuel.store_employee');
+    Route::get('/userTypeFuel',[\App\Http\Controllers\TypeFuelController::class, 'typeFuelsUser'])->name('type_fuel.user');
 });
 
 require __DIR__.'/auth.php';
