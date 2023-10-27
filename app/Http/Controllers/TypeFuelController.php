@@ -4,14 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TypeFuel\StoreRequest;
 use App\Models\Fuel;
-use App\Models\NortType;
 use App\Models\TypeFuel;
 use App\Models\User;
-use App\Notifications\FuelApplication;
 use App\Services\TypeFuels\Service;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Notification;
 
 class TypeFuelController extends Controller
 {
@@ -47,7 +42,7 @@ class TypeFuelController extends Controller
     public function destroy(TypeFuel $type)
     {
         $fuel_id = $type->fuel_id;
-        $type->delete();
+        $this->destroy($type);
         return redirect()->route('fuels.show', $fuel_id);
     }
 
@@ -61,50 +56,14 @@ class TypeFuelController extends Controller
     {
         $data = $request->validated();
         $this->service->store($data);
-        $users = User::where('role_id', 1)->get();
-
-        Notification::send($users, new FuelApplication($data['number_fuel'], Fuel::find($data['fuel_id'])->name, Auth::user()->name));
-        $type = TypeFuel::orderBy('id', 'desc')->first();
-        $norts = DB::table('notifications')->select('id')->orderBy('id', 'desc')->limit(count($users))->get();
-
-        $data = array();
-
-        foreach ($norts as $nort)
-        {
-            $data [] = [
-                'type_id' => $type->id,
-                'nort_id' => $nort->id,
-            ];
-        }
-
-        foreach ($data as $item)
-        {
-            NortType::create($item);
-        }
+        $this->service->store_employee($data);
 
         return redirect()->route('home.index');
     }
 
     public function update(TypeFuel $type)
     {
-
-        $type->status = 1;
-        $type->update();
-        $type->refresh();
-
-        $users = User::where('role_id', 1)->get();
-        $norts = NortType::where('type_id', $type->id)->get();
-
-        foreach ($users as $user) {
-            foreach ($user->unreadNotifications as $notification) {
-                foreach ($norts as $nort){
-                    if ($notification->id == $nort->nort_id){
-                        $notification->markAsRead();
-                    }
-                }
-            }
-        }
-
+        $this->service->update($type);
         $types = TypeFuel::where('status', 0)->get();
         $types = $this->service->show($types);
         return redirect()->route('type_fuel.index', $types);
