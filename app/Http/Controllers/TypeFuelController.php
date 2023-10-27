@@ -24,7 +24,8 @@ class TypeFuelController extends Controller
 
     public function type_fuels()
     {
-        $types = $this->service->show();
+        $types = TypeFuel::where('status', 0)->get();
+        $types = $this->service->show($types);
         return view('type_fuel.type_fuels', compact('types'));
     }
 
@@ -93,7 +94,7 @@ class TypeFuelController extends Controller
 
         $users = User::where('role_id', 1)->get();
         $norts = NortType::where('type_id', $type->id)->get();
-        /*dd($norts);*/
+
         foreach ($users as $user) {
             foreach ($user->unreadNotifications as $notification) {
                 foreach ($norts as $nort){
@@ -104,7 +105,16 @@ class TypeFuelController extends Controller
             }
         }
 
-        $types = $this->service->show();
+        $types = TypeFuel::where('status', 0)->get();
+        $types = $this->service->show($types);
         return redirect()->route('type_fuel.index', $types);
+    }
+
+    public function typeFuelsUser()
+    {
+        $types = TypeFuel::where('user_id', auth()->user()->id)->get();
+        $types = $this->service->show($types);
+
+        return view('type_fuel.user', compact('types'));
     }
 }
