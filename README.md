@@ -19,4 +19,5 @@
 <img align="center" alt="Taiwindcss" height="30" width="40" src="https://github.com/dheereshagrwal/colored-icons/blob/master/icons/tailwind/tailwind.svg" />
 <img align="center" alt="HTML" height="30" width="40" src="https://github.com/dheereshagrwal/colored-icons/blob/master/icons/html/html.svg" />
 <img align="center" alt="CSS" height="30" width="40" src="https://github.com/dheereshagrwal/colored-icons/blob/master/icons/css/css.svg" />
+<img align="center" alt="MYSQL" height="30" width="40" src="https://github.com/dheereshagrwal/colored-icons/blob/master/icons/mysql/mysql.svg" />
 </p>
